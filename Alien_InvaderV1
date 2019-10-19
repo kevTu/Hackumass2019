@@ -5,19 +5,45 @@ const int SW_pin = 2;
 const int X_pin = 0;
 const int Y_pin = 1; 
 
+byte customCharA[] = {
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B01100,
+  B01110,
+  B01100
+};
+byte customCharB[] = {
+  B00000,
+  B00000,
+  B00000,
+  B00000,
+  B01100,
+  B01110,
+  B01100,
+  B00000
+};
+
+
+
 void setup() {
   // put your setup code here, to run once:
  lcd.begin(16,2);
- lcd.print("Hello, world");
- pinMode(SW_pin, INPUT);
- digitalWrite(SW_pin, HIGH);
- Serial.begin(115200);
+ lcd.createChar(0, customChar);
+ lcd.home();
+ lcd.setCursor(1,0);
+ lcd.write(byte(0));
+ //pinMode(SW_pin, INPUT);
+ //digitalWrite(SW_pin, HIGH);
+ //Serial.begin(115200);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   //lcd.print("Hello, world");
-  Serial.print("Switch: ");
+  /*Serial.print("Switch: ");
   Serial.print(digitalRead(SW_pin));
   Serial.print("\n");
   Serial.print("X-axis: ");
@@ -27,4 +53,5 @@ void loop() {
   Serial.print(analogRead(Y_pin));
   Serial.print("\n\n");
   delay(500);
+  */
 }
