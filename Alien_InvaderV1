@@ -1,11 +1,30 @@
 #include <LiquidCrystal.h>
 
-LiquidCrystal lcd(12, 11, 10, 5, 4, 3, 2);
+LiquidCrystal lcd(8,9,10,11,12,13);
+const int SW_pin = 2;
+const int X_pin = 0;
+const int Y_pin = 1; 
 
-void setup()
-{
-  lcd.begin(16,1);
-  lcd.print("hello, world!");
+void setup() {
+  // put your setup code here, to run once:
+ lcd.begin(16,2);
+ lcd.print("Hello, world");
+ pinMode(SW_pin, INPUT);
+ digitalWrite(SW_pin, HIGH);
+ Serial.begin(115200);
 }
 
-void loop() {}
+void loop() {
+  // put your main code here, to run repeatedly:
+  //lcd.print("Hello, world");
+  Serial.print("Switch: ");
+  Serial.print(digitalRead(SW_pin));
+  Serial.print("\n");
+  Serial.print("X-axis: ");
+  Serial.print(analogRead(X_pin));
+  Serial.print("\n");
+  Serial.print("Y-axis: ");
+  Serial.print(analogRead(Y_pin));
+  Serial.print("\n\n");
+  delay(500);
+}
