@@ -15,18 +15,10 @@ byte customCharA[] = {
   B01110,
   B01100
 };
-byte customCharB[] = {
-  B00000,
-  B00000,
-  B00000,
-  B00000,
-  B01100,
-  B01110,
-  B01100,
-  B00000
-};
 
-
+for(int k = 7; k >= 0; k--){        
+    temp[k]=temp[k-1];
+}
 
 void setup() {
   // put your setup code here, to run once:
